@@ -14,4 +14,15 @@
   <ItemGroup>
     <Folder Include="Test_data\variant_1\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Test_data\variant_1\one\1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Test_data\variant_1\three\1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Test_data\variant_1\two\One more text.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

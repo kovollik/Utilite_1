@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Utilite_1;
+
 
 namespace UtilityTests
 {
@@ -10,7 +13,8 @@ namespace UtilityTests
         [TestMethod]
         public void CheckInsertOnMatch()
         {
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(@"C:\Users\ollik\source\repos\Utilite_1\UtilityTests\Test_data\variant_1");
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path + @"Test_data\variant_1");
             Assert.IsTrue(dir.ReadDirectory().Length == 3);
             string[] actual = dir.ReadDirectory();
             string[] expected = new string[] { "one", "three", "two" };
@@ -21,14 +25,16 @@ namespace UtilityTests
         [TestMethod]
         public void CheckLength2Element()
         {
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(@"c:\Files\Книги\simple\one\");
+            string path= AppDomain.CurrentDomain.BaseDirectory;
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data\variant_1\one");
             Assert.IsTrue(dir.ReadDirectory().Length == 1);
         }
 
         [TestMethod]
         public void ComboCheck()
         {
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(@"c:\Files\Книги\simple\one\For test\");
+            string path= AppDomain.CurrentDomain.BaseDirectory;
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data\variant_1\one\For test\");
             Assert.IsTrue(dir.ReadDirectory().Length == 5);
             string[] actual = dir.ReadDirectory();
             string[] expected = new string[] { "dolly", "holiday", "holy","insert","opera" };
@@ -43,10 +49,9 @@ namespace UtilityTests
         [TestMethod]
         public void CheckEqualFullArray()
         {
-            string path = @"c:\Files\Книги\simple\one\For test\";
+            string path = AppDomain.CurrentDomain.BaseDirectory+ @"Test_data\variant_1\one\For test\";
             ReturnFullArrayList fullArrayList = new ReturnFullArrayList(path);
             ReadDirrectoryAndFileName dirrectoryName = new ReadDirrectoryAndFileName(path);
-            
         }
     }
 }
