@@ -14,7 +14,7 @@ namespace UtilityTests
         public void CheckInsertOnMatch()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path + @"Test_data\variant_1");
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path + @"Test_data/variant_1");
             Assert.IsTrue(dir.ReadDirectory().Length == 3);
             string[] actual = dir.ReadDirectory();
             string[] expected = new string[] { "one", "three", "two" };
@@ -26,7 +26,7 @@ namespace UtilityTests
         public void CheckLength2Element()
         {
             string path= AppDomain.CurrentDomain.BaseDirectory;
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data\variant_1\one");
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data/variant_1/one");
             Assert.IsTrue(dir.ReadDirectory().Length == 1);
         }
 
@@ -34,7 +34,7 @@ namespace UtilityTests
         public void ComboCheck()
         {
             string path= AppDomain.CurrentDomain.BaseDirectory;
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data\variant_1\one\For test\");
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(path+@"Test_data/variant_1/one/For test/");
             Assert.IsTrue(dir.ReadDirectory().Length == 5);
             string[] actual = dir.ReadDirectory();
             string[] expected = new string[] { "dolly", "holiday", "holy","insert","opera" };
@@ -49,7 +49,7 @@ namespace UtilityTests
         [TestMethod]
         public void CheckEqualFullArray()
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory+ @"Test_data\variant_1\one\For test\";
+            string path = AppDomain.CurrentDomain.BaseDirectory+ @"Test_data/variant_1/one/For test/";
             ReturnFullArrayList fullArrayList = new ReturnFullArrayList(path);
             ReadDirrectoryAndFileName dirrectoryName = new ReadDirrectoryAndFileName(path);
         }
