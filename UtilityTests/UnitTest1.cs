@@ -10,7 +10,7 @@ namespace UtilityTests
         [TestMethod]
         public void CheckInsertOnMatch()
         {
-            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(@"c:\Files\Книги\simple\");
+            ReadDirrectoryAndFileName dir = new ReadDirrectoryAndFileName(@"C:\Users\ollik\source\repos\Utilite_1\UtilityTests\Test_data\variant_1");
             Assert.IsTrue(dir.ReadDirectory().Length == 3);
             string[] actual = dir.ReadDirectory();
             string[] expected = new string[] { "one", "three", "two" };

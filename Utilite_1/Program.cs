@@ -12,6 +12,10 @@ namespace Utilite_1
         public ReadDirrectoryAndFileName(string n) { path = n; }
         public string[] ReadDirectory()         //узнать имена папок в каталоге
         {
+            if (path[path.Length - 1] != '/')
+            {
+                path += "/";
+            }
             string[] list = Directory.GetDirectories(path);
             int len = path.Length;
             for (int i = 0; i < list.Length; i++)               //выделение имени папок
