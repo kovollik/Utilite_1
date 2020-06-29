@@ -23,6 +23,13 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet build --configuration Release --no-restore
+    - name: Archive
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'release-v0.0.2.zip'
+        path: "Utilite_1/bin/Release/netcoreapp2.2/publish"        
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -40,6 +47,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: "Utilite_1/bin/Release/netcoreapp2.2/Utilite_1.dll"
-        asset_name: treelist.dll
+        asset_path: "release-v0.0.2.zip"
+        asset_name: "release-v0.0.2.zip"
         asset_content_type: application/octet-stream
