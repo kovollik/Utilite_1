@@ -60,7 +60,7 @@ namespace Utilite_1
         public void ShowInsertDirToConsole()           //метод для вывода списков вложенных папок в консоль
         {
             Console.WriteLine("Directory " + path + " includes:");
-            if (list.Length==0) Console.WriteLine("It's empty");                //подпись для пустых папок
+            if (list.Length == 0) Console.WriteLine("It's empty");                //подпись для пустых папок
             foreach (string element in list)
             {
                 Console.WriteLine(element);
@@ -69,7 +69,7 @@ namespace Utilite_1
 
             for (int i = 0; i < list.Length; i++)
             {
-                if (Directory.Exists(path + list[i]))                   
+                if (Directory.Exists(path + list[i]))
                 {
                     ReturnFullArrayList returnFull = new ReturnFullArrayList(path + list[i] + "/");
                     if (returnFull.ReturnList().Length >= 0)
@@ -101,9 +101,15 @@ namespace Utilite_1
 
     class Program
     {
+        public static string path;
+        public static string EnterThePath()
+        {
+            path = Console.ReadLine();
+            return path;
+        }
         static void Main()
         {
-            string newPath = "C:/Files/";
+            string newPath = EnterThePath();
             ReturnFullArrayList returnFull = new ReturnFullArrayList(newPath);
             ShowResultConsole showResult = new ShowResultConsole(returnFull.ReturnList(), newPath);
             showResult.ShowInsertDirToConsole();
