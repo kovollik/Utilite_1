@@ -2,13 +2,13 @@
 using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Utilite_1;
+using TreeList;
 
 
-namespace UtilityTests
+namespace UtilityTestsForTreeList
 {
     [TestClass]
-    public class UnitTest1
+    public class CheckInsertArray
     {
         [TestMethod]
         public void CheckInsertOnMatch()
@@ -44,7 +44,7 @@ namespace UtilityTests
     }
 
     [TestClass]
-    public class UnitTest2
+    public class CheckInsertFullArray
     {
         [TestMethod]
         public void CheckEqualFullArray()
