@@ -26,10 +26,10 @@ jobs:
     - name: Publish
       run: dotnet build --configuration Release --no-restore
     - name: two
-      run: ls -R .
+      run: ls -R "./Utilite_1/bin/Release/netcoreapp2.2/publish"
 
     - name: Archive
-      run: zip -r release-v0.0.2.zip "Utilite_1/bin/Release/netcoreapp2.2/publish"        
+      run: zip -r release-v0.0.2.zip "./Utilite_1/bin/Release/netcoreapp2.2/publish"        
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
