@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Utilite_1
+namespace TreeList
 {
     public class ReadDirrectoryAndFileName
     {
