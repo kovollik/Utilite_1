@@ -25,6 +25,11 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Publish
       run: dotnet build --configuration Release --no-restore
+    - name: one
+      run: ls "Utilite_1/bin/Release/netcoreapp2.2/publish"        
+    - name: two
+      run: ls -R .
+
     - name: Archive
       run: zip -r release-v0.0.2.zip "Utilite_1/bin/Release/netcoreapp2.2/publish"        
     - name: Create Release
